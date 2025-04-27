@@ -28,22 +28,19 @@ $(function() {
   $window.on('load', function() {
     checkNavbarFixed();
   });
-});
 
-$(function() {
   $('.navbar a').on('click', function(e) {
     e.preventDefault();
     var target = $(this).attr('href');
-    if (target === '#top') {
-      $('html, body').animate({ scrollTop: 0 }, 600, 'swing');
-    } else {
-      var position = $(target).offset().top;
-      if ($('#navbar').hasClass('fixed')) {
-        position -= $('#navbar').outerHeight();
-      }
-      $('html, body').animate({
-        scrollTop: position
-      }, 600, 'swing');
+    var position = 0;
+
+    if (target !== '#top') {
+      position = $(target).offset().top;
+      position -= $navbar.outerHeight();
     }
+
+    $('html, body').animate({
+      scrollTop: position
+    }, 600, 'swing');
   });
 });
