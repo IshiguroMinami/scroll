@@ -1,8 +1,8 @@
 $(function() {
-  var $window = $(window);
-  var $navbar = $('#navbar');
-  var navbarOffset = $navbar.offset().top;
-  var resizeTimeout = null;
+  const $window = $(window);
+  const $navbar = $('#navbar');
+  let navbarOffset = $navbar.offset().top;
+  let resizeTimeout = null;
 
   function checkNavbarFixed() {
     if ($window.scrollTop() >= navbarOffset) {
